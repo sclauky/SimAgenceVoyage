@@ -1,10 +1,24 @@
 package travelagency.travelagency.classes;
 
+import javax.print.attribute.standard.Destination;
+
 public class Client {
     private String Nom;
     private int NombreClient;
     private Voyage voyage;
-    private int Budget;
+    private Destination destination;
+
+    public String getNom() {
+        return Nom;
+    }
+
+    public int getNombreClient() {
+        return NombreClient;
+    }
+
+    public void setVoyage(Voyage voyage) {
+        this.voyage = voyage;
+    }
 
     public Client(String Nom, int NombreClient) {
         this.Nom = Nom;
@@ -12,6 +26,7 @@ public class Client {
         this.voyage = voyage;
     }
 
-    //Client c1 = new Client();
-    //Client c2 = new Client();
+    public void setNombreClient(int nombreClient) {
+        NombreClient = nombreClient;
+    }
 }

@@ -5,5 +5,4 @@ public class Voyage {
     private Logement Logement;
     private Vol Vol;
 
-    Voyage voy1 = new Voyage( );
 }
