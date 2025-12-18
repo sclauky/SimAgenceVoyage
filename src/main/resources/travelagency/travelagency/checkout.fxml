@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="14" padding="20"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="travelagency.travelagency.controllers.CheckoutController">
+
+    <Label text="Paiement / Récapitulatif" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <Label fx:id="recapLabel"/>
+
+    <Separator/>
+
+    <Label text="Choisir un logement"/>
+    <ComboBox fx:id="logementBox" prefWidth="320"/>
+
+    <HBox spacing="10">
+        <Button text="Retour" onAction="#back"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Payer" onAction="#pay"/>
+    </HBox>
+
+</VBox>

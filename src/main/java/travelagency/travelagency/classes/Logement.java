@@ -1,35 +1,19 @@
 package travelagency.travelagency.classes;
 
 public class Logement {
-    private int capacite;
-    private int prix;
+    protected int capacite;
+    protected int prix;
 
     public Logement(int capacite, int prix) {
+        this.capacite = capacite;
+        this.prix = prix;
     }
 
-    // Les classes filles
-    public class Hotel extends Logement {
-        public Hotel() {
-            super(2, 90);
-        }
-    }
+    public int getCapacite() { return capacite; }
+    public int getPrix() { return prix; }
 
-    public class Auberge extends Logement {
-        public Auberge() {
-            super(4, 80);
-        }
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " - " + capacite + " pers - " + prix + "€";
     }
-
-    public class RBNB extends Logement {
-        public RBNB(){
-            super(6, 130);
-        }
-    }
-;
-    public class Jît extends Logement {
-        public Jît(int capacite, int prix) {
-            super(10, 310);
-        }
-    }
-
 }

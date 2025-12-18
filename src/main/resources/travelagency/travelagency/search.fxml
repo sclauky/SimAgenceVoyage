@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="travelagency.travelagency.controllers.SearchController">
+
+    <top>
+        <HBox spacing="10" padding="14">
+            <Label text="Recherche de vol" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Déconnexion" onAction="#logout"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="12" alignment="CENTER">
+            <Label text="Destination"/>
+            <ComboBox fx:id="destinationBox" prefWidth="320"/>
+            <Button text="Explorer" onAction="#search" prefWidth="160"/>
+        </VBox>
+    </center>
+
+</BorderPane>

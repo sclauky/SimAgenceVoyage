@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="14" padding="20" alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="travelagency.travelagency.controllers.ConfirmationController">
+
+    <Label text="Confirmation" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+    <Label fx:id="confirmationLabel" wrapText="true"/>
+
+    <Button text="Retour à l'accueil" onAction="#backHome"/>
+
+</VBox>

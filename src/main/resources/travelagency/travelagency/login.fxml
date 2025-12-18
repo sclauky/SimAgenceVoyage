@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="14" alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="travelagency.travelagency.controllers.LoginController">
+
+    <Label text="Connexion" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <TextField fx:id="emailField" promptText="Email" prefWidth="280"/>
+    <PasswordField fx:id="passwordField" promptText="Mot de passe" prefWidth="280"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Se connecter" onAction="#login"/>
+        <Button text="Créer un compte" onAction="#goRegister"/>
+    </HBox>
+
+</VBox>
