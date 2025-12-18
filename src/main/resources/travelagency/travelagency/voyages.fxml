@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="travelagency.travelagency.controllers.VoyagesController">
+
+    <top>
+        <Label text="Voyages disponibles" style="-fx-font-size: 20px; -fx-font-weight: bold;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <VBox spacing="10" padding="20">
+            <ListView fx:id="voyagesList" prefHeight="420"/>
+            <Button text="Retour au menu" onAction="#back" prefWidth="160"/>
+        </VBox>
+    </center>
+</BorderPane>
+V

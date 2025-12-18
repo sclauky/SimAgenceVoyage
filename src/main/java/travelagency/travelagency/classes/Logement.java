@@ -27,7 +27,7 @@ public class Logement {
     }
 ;
     public class Jît extends Logement {
-        public Jît() {
+        public Jît(int capacite, int prix) {
             super(10, 310);
         }
     }
