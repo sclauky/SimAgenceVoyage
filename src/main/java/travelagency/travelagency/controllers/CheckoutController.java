@@ -1,34 +1,55 @@
 package travelagency.travelagency.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import travelagency.travelagency.classes.Logement;
 
 public class CheckoutController {
 
     @FXML private Label recapLabel;
-    @FXML private ComboBox<Logement> logementBox;
+    @FXML private Label totalLabel;
+    @FXML private Label errorLabel;
 
     @FXML
     public void initialize() {
-        recapLabel.setText(
-                "Destination : " + AppState.selectedDestination + "\n" +
-                        "Vol : " + (AppState.selectedVol == null ? "Aucun" : AppState.selectedVol.toString())
-        );
+        if (AppState.selectedVol == null || AppState.selectedLogement == null || AppState.selectedDestination == null) {
+            SceneSwitcher.switchTo("search.fxml");
+            return;
+        }
 
-        logementBox.getItems().setAll(AppState.logements);
-        if (!AppState.logements.isEmpty()) logementBox.getSelectionModel().select(0);
-    }
+        String recap =
+                "Nom : " + AppState.userName + "\n" +
+                        "Destination : " + AppState.selectedDestination + "\n" +
+                        "Vol : #" + AppState.selectedVol.getIdVol() +
+                        " • " + AppState.selectedVol.getCapacite() + " places" +
+                        " • " + AppState.selectedVol.getPrix() + "€\n" +
+                        "Logement : " + AppState.selectedLogement.getClass().getSimpleName() +
+                        " • " + AppState.selectedLogement.getCapacite() + " pers" +
+                        " • " + AppState.selectedLogement.getPrix() + "€";
 
-    @FXML
-    private void pay() {
-        AppState.selectedLogement = logementBox.getSelectionModel().getSelectedItem();
-        SceneSwitcher.switchTo("confirmation.fxml");
+        recapLabel.setText(recap);
+        totalLabel.setText(AppState.getTotal() + "€");
+        errorLabel.setText("");
     }
 
     @FXML
     private void back() {
-        SceneSwitcher.switchTo("results.fxml");
+        SceneSwitcher.switchTo("search.fxml");
+    }
+
+    @FXML
+    private void cancel() {
+        // Annuler = revenir à la recherche sans confirmer
+        SceneSwitcher.switchTo("search.fxml");
+    }
+
+    @FXML
+    private void confirm() {
+        // sécurité
+        if (AppState.selectedVol == null || AppState.selectedLogement == null || AppState.selectedDestination == null) {
+            errorLabel.setText("Sélection incomplète. Retour à la recherche.");
+            SceneSwitcher.switchTo("search.fxml");
+            return;
+        }
+        SceneSwitcher.switchTo("confirmation.fxml");
     }
 }

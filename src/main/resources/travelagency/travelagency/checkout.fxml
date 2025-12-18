@@ -1,25 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
 
-<VBox spacing="14" padding="20"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="travelagency.travelagency.controllers.CheckoutController">
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="travelagency.travelagency.controllers.CheckoutController"
+            stylesheets="@app.css" styleClass="page">
 
-    <Label text="Paiement / Récapitulatif" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <top>
+        <HBox spacing="10" styleClass="card">
+            <Button text="← Retour" onAction="#back" styleClass="btn-ghost"/>
+            <VBox spacing="2">
+                <Label text="Checkout" styleClass="title"/>
+                <Label text="Vérifie le récap et confirme." styleClass="subtitle"/>
+            </VBox>
+        </HBox>
+    </top>
 
-    <Label fx:id="recapLabel"/>
+    <center>
+        <VBox spacing="12">
 
-    <Separator/>
+            <VBox spacing="10" styleClass="card">
+                <Label text="Récapitulatif" styleClass="label-white" style="-fx-font-size: 16px; -fx-font-weight: 800;"/>
+                <Label fx:id="recapLabel" text="" styleClass="label-white"/>
+            </VBox>
 
-    <Label text="Choisir un logement"/>
-    <ComboBox fx:id="logementBox" prefWidth="320"/>
+            <HBox spacing="12">
+                <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label text="Total" styleClass="label-muted"/>
+                    <Label fx:id="totalLabel" text="0€" styleClass="label-white"
+                           style="-fx-font-size: 26px; -fx-font-weight: 900;"/>
+                    <Label text="(vol + logement)" styleClass="label-muted"/>
+                </VBox>
 
-    <HBox spacing="10">
-        <Button text="Retour" onAction="#back"/>
-        <Pane HBox.hgrow="ALWAYS"/>
-        <Button text="Payer" onAction="#pay"/>
-    </HBox>
+                <VBox spacing="10" styleClass="card" prefWidth="320">
+                    <Button text="Confirmer la réservation" onAction="#confirm" styleClass="btn-primary" maxWidth="Infinity"/>
+                    <Button text="Annuler" onAction="#cancel" styleClass="btn-ghost" maxWidth="Infinity"/>
+                    <Label fx:id="errorLabel" text="" styleClass="label-muted"/>
+                </VBox>
+            </HBox>
 
-</VBox>
+        </VBox>
+    </center>
+
+    <padding>
+        <Insets top="18" right="18" bottom="18" left="18"/>
+    </padding>
+</BorderPane>

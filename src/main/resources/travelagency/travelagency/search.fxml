@@ -1,24 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="travelagency.travelagency.controllers.SearchController">
+            fx:controller="travelagency.travelagency.controllers.SearchController"
+            stylesheets="@app.css">
 
     <top>
-        <HBox spacing="10" padding="14">
-            <Label text="Recherche de vol" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
-            <Pane HBox.hgrow="ALWAYS"/>
-            <Button text="Déconnexion" onAction="#logout"/>
-        </HBox>
+        <VBox spacing="10" styleClass="page">
+            <HBox spacing="10" alignment="CENTER_LEFT" styleClass="topbar">
+                <Button text="← Retour" onAction="#backToWelcome" styleClass="chip"/>
+                <VBox>
+                    <Label text="Choisis ton voyage" styleClass="h1"/>
+                    <Label text="Destination, vol, logement — puis checkout." styleClass="muted"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="welcomeLabel" text="Bienvenue 👋" styleClass="muted"/>
+            </HBox>
+        </VBox>
     </top>
 
     <center>
-        <VBox spacing="12" alignment="CENTER">
-            <Label text="Destination"/>
-            <ComboBox fx:id="destinationBox" prefWidth="320"/>
-            <Button text="Explorer" onAction="#search" prefWidth="160"/>
+        <VBox spacing="14" styleClass="page">
+            <padding>
+                <Insets top="0" right="24" bottom="24" left="24"/>
+            </padding>
+
+            <VBox spacing="8" styleClass="card">
+                <Label text="Destination" styleClass="h2"/>
+                <ComboBox fx:id="destinationBox" prefWidth="360"/>
+            </VBox>
+
+            <HBox spacing="14">
+                <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label text="Vols disponibles" styleClass="h2"/>
+                    <ListView fx:id="volsList" prefHeight="240"/>
+                </VBox>
+
+                <VBox spacing="10" styleClass="card" HBox.hgrow="ALWAYS">
+                    <Label text="Logements" styleClass="h2"/>
+                    <ListView fx:id="logementsList" prefHeight="240"/>
+                </VBox>
+            </HBox>
+
+            <VBox spacing="10" styleClass="card">
+                <Label text="Résumé" styleClass="h2"/>
+                <Label fx:id="summaryLabel" wrapText="true" styleClass="label-white"/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label fx:id="totalLabel" text="Total : 0€" styleClass="h1"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Réinitialiser" onAction="#reset" styleClass="ghost"/>
+                    <Button text="Aller au checkout" onAction="#goCheckout" styleClass="primary"/>
+                </HBox>
+                <Label fx:id="errorLabel" text="" styleClass="error"/>
+            </VBox>
+
         </VBox>
     </center>
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+           fx:controller="travelagency.travelagency.controllers.WelcomeController"
+           stylesheets="@app.css" styleClass="page">
+
+    <VBox spacing="14" maxWidth="420" styleClass="card">
+        <Label text="Agence de Voyage — GLORY" styleClass="title"/>
+        <Label text="Mode invité : entre ton prénom pour accéder aux réservations." styleClass="subtitle"/>
+
+        <Label text="Prénom" styleClass="label-muted"/>
+        <TextField fx:id="nameField" promptText="Votre prénom" styleClass="input"/>
+
+        <Button text="Continuer" onAction="#continueAsGuest" styleClass="btn-primary" maxWidth="Infinity"/>
+        <Label fx:id="errorLabel" text="" styleClass="label-muted"/>
+    </VBox>
+
+    <padding><Insets top="40" right="40" bottom="40" left="40"/></padding>
+</StackPane>

@@ -1,5 +1,7 @@
 package travelagency.travelagency.classes;
 
 public class Auberge extends Logement {
-    public Auberge() { super(4, 80); }
+    public Auberge() {
+        super(1, 120);
+    }
 }

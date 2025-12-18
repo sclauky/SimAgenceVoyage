@@ -1,5 +1,7 @@
 package travelagency.travelagency.classes;
 
 public class Airbnb extends Logement {
-    public Airbnb() { super(6, 130); }
+    public Airbnb() {
+        super(4, 380);
+    }
 }
