@@ -6,7 +6,6 @@ public class Client {
     private String Nom;
     private int NombreClient;
     private Voyage voyage;
-    private Destination destination;
 
     public String getNom() {
         return Nom;

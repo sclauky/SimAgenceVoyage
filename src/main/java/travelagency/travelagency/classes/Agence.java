@@ -30,17 +30,14 @@ public class Agence {
     public class main {
         public class Main {
             public static void main(String[] args) {
-                // 2. IMPORTANT : La déclaration de la variable "sc"
+                // déclaration de la variable "sc"
                 Scanner sc = new Scanner(System.in);
             }
         }
 
         public static void main(String[] args) {
-            // On peut changer la ligne ci-dessous par "new Paypal()" sans rien changer d'autre !
             MoyenDePaiement monPaiement = new CarteBancaire();
-
-            // On appelle la méthode sans se soucier du détail technique
-            monPaiement.payer(49.90);
+            monPaiement.payer(2000);
         }
     }
 }
